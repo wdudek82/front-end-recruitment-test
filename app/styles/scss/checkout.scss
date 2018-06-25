@@ -130,7 +130,6 @@
   font-size: 1.5rem;
 }
 
-
 .input--item,
 .select--item {
   position: relative;
@@ -142,6 +141,7 @@
         left: 0.8rem;
         font-weight: 700;
         font-size: 0.9rem;
+        color: #555;
       }
 
       input,
@@ -161,6 +161,7 @@
         padding: 0 0.8rem;
       
         &::placeholder {
+          color: #aaa;
         }
       }
 }
