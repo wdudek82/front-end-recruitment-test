@@ -109,24 +109,45 @@ function validatePhone(phone) {
 * @param {number} creditCardNumber - creditCardNumber
 */
 function validateCreditCardNumber(creditCardNumber) {
-  console.log(fname);
-  creditCardNumber.classList.add('invalid');
+  const creditCardNumberRegex = /^(\d{4}[\s.-]?){3}\d{4}$/;
+
+  let appendedClass = 'invalid';
+
+  if (creditCardNumber.value.match(creditCardNumberRegex)) {
+    appendedClass = 'valid';
+  }
+
+  outputValidationResults(creditCardNumber, appendedClass);
 }
 
 /**
 * @param {string} securityCode - securityCode
 */
 function validateSecurityCode(securityCode) {
-  console.log(fname);
-  securityCode.classList.add('invalid');
+  const securityCodeRegex = /^\d{3}$/;
+
+  let appendedClass = 'invalid';
+
+  if (securityCode.value.match(securityCodeRegex)) {
+    appendedClass = 'valid';
+  }
+
+  outputValidationResults(securityCode, appendedClass);
 }
 
 /**
 * @param {string} expirationDate - expirationDate
 */
 function validateExpirationDate(expirationDate) {
-  console.log(fname);
-  expirationDate.classList.add('invalid');
+  const expirationDateRegex = /^(0?[1-9]|1[012])[/-](\d{4})$/;
+
+  let appendedClass = 'invalid';
+
+  if (expirationDate.value.match(expirationDateRegex)) {
+    appendedClass = 'valid';
+  }
+
+  outputValidationResults(expirationDate, appendedClass);
 }
 
 checkoutForm.addEventListener('submit', handleFormSubmit);
