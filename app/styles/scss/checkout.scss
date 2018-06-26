@@ -164,16 +164,12 @@
 .select__item {
   :after {
     content: '>';
-    font: 17px "Poppins", sans-serif;
+    font: 17px 'Poppins', sans-serif;
     color: #333;
     transform: rotate(90deg);
     right: -150px;
-    /*Adjust for position however you want*/
-    
     top: 5px;
     padding: 0 0 2px;
-    /*left line */
-    
     position: absolute;
     pointer-events: none;
   }
@@ -203,6 +199,13 @@
     font-weight: 700;
     font-size: 0.9rem;
     color: #555;
+    transition: color 0.3s;
+  }
+
+  &:focus-within {
+    label {
+      color: darken(#6bd400, 10%);
+    }
   }
 
   input {
