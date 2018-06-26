@@ -287,27 +287,28 @@
       <!-- Checkout START -->
       <div class="mdl-layout__tab-panel is-active" id="checkout">
         <section class="checout-main">
+
           <form class="checkout-form">
-            <header class="form--header personal">
+            <header class="form__header personal">
               <div class="number-icon">1</div>
               <div class="header-title">
                 Personal information
               </div>
             </header>
-            <div class="form--item personal">
-              <div class="input--item">
+            <div class="form__item personal">
+              <div class="input__item fname-item">
                 <label for="">First name</label>
-                <input type="text" name="fname" id="" placeholder="Elon">
+                <input type="text" name="fname" id="fname" placeholder="Elon">
               </div>
-              <div class="input--item">
+              <div class="input__item lname-item">
                 <label for="">Last name</label>
-                <input type="text" name="lname" id="" placeholder="Musk">
+                <input type="text" name="lname" id="lname" placeholder="Musk">
               </div>
-              <div class="input--item">
+              <div class="input__item email-item">
                 <label for="">Email</label>
-                <input type="text" name="email" id="" placeholder="elon@spacex.com">
+                <input type="text" name="email" id="email" placeholder="elon@spacex.com">
               </div>
-              <div class="select--item">
+              <div class="select__item country-item">
                 <label for="">Country</label>
                 <select name="country">
                   <option value="us">United States</option>
@@ -315,72 +316,74 @@
                   <option value="de">Germany</option>
                 </select>
               </div>
-              <div class="input--item">
+              <div class="input__item postal-item">
                 <label for="">Postal Code</label>
-                <input type="text" name="email" id="" placeholder="10001">
+                <input type="text" name="postal" id="postal" placeholder="10001">
               </div>
-              <div class="input--item">
+              <div class="input__item phone-item">
                 <label for="">Phone Number</label>
-                <input type="text" name="email" id="" placeholder="(212) 692-93-92">
+                <input type="phone" name="phone" id="phone" placeholder="(212) 692-93-92">
               </div>
             </div>
-            <header class="form--header payment">
+            <header class="form__header payment">
               <div class="number-icon">2</div>
               <div class="header-title">
                 Payment details
                 <i class="fas fa-lock"></i>
               </div>
             </header>
-            <div class="form--item payment">
-              <div class="form--body">
-                <div class="input--item">
-                  <label for="">Credit Card Number</label>
-                  <input type="text" name="credit-card" id="" placeholder="Elon">
-                </div>
-                <div class="input--item">
-                  <label for="">Security code</label>
-                  <input type="password" name="security-code" id="" placeholder="Musk">
-                </div>
-                <div class="input--item">
-                  <label for="">Expiration date</label>
-                  <input type="text" name="expiration-date" id="" placeholder="MM / YY">
-                </div>
+            <div class="form__item payment">
+              <div class="input__item creditcard-item">
+                <label for="">Credit Card Number</label>
+                <input type="text" name="credit-card" id="credit-card" placeholder="0000 - 0000 - 0000 - 0000">
+              </div>
+              <div class="input__item security-item">
+                <label for="">Security code</label>
+                <span class="question-mark">?</span>
+                <input type="password" name="security-code" id="security-code" placeholder="***">
+              </div>
+              <div class="input__item expiration-item">
+                <label for="">Expiration date</label>
+                <input type="text" name="expiration-date" id="expiration-date" placeholder="MM / YY">
               </div>
             </div>
-            <button class="form--button" type="submit">
+            <button class="form__button" type="submit">
               <i class="fas fa-shopping-cart"></i>
               Complete purchase
             </button>
-            <aside class="order-box">
-              <div class="order-box--container">
-                <header class="order-box--header">Your order</header>
-                <div class="order-box--item">
-                  <div class="item-name">Apple Watch Sport</div>
-                  <div class="item-prise">$ 580</div>
-                </div>
-                <div class="order-box--item">
-                  <div class="item-name">Modern Buckle</div>
-                  <div class="item-prise">$ 380</div>
-                </div>
-                <hr>
-                <div class="order-box--item">
-                  <div class="item-name">Total purchases</div>
-                  <div class="item-prise">$ 960.00</div>
-                </div>
-                <div class="order-box--item">
-                  <div class="item-name">Estimated tax</div>
-                  <div class="item-prise">$ 0</div>
-                </div>
-                <hr>
-                <div class="order-box--item">
-                  <div class="total--label">Total</div>
-                  <div class="total--price">$ 960</div>
-                </div>
-              </div>
-            </aside>
           </form>
+
+          <aside class="checkout-summary">
+            <div class="checkout-summary__container">
+              <header class="checkout-summary__header">Your order</header>
+              <div class="checkout-summary__item">
+                <div class="item-name">Apple Watch Sport</div>
+                <div class="item-prise">$ 580</div>
+              </div>
+              <div class="checkout-summary__item">
+                <div class="item-name">Modern Buckle</div>
+                <div class="item-prise">$ 380</div>
+              </div>
+              <hr>
+              <div class="checkout-summary__item">
+                <div class="item-name">Total purchases</div>
+                <div class="item-prise">$ 960.00</div>
+              </div>
+              <div class="checkout-summary__item">
+                <div class="item-name">Estimated tax</div>
+                <div class="item-prise">$ 0</div>
+              </div>
+              <hr>
+              <div class="checkout-summary__item">
+                <div class="total__label">Total</div>
+                <div class="total__price">$ 960</div>
+              </div>
+            </div>
+          </aside>
+
         </section>
       </div>
+
       <!-- Checkout END -->
 
       <footer class="mdl-mega-footer">
@@ -479,6 +482,8 @@
   <!-- build:js scripts/main.min.js -->
   <script src="scripts/main.js"></script>
   <!-- endbuild -->
+
+  <script src="scripts/checkout.js" />
 
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
   <script>
