@@ -308,6 +308,11 @@
   border-radius: 3px;
   box-shadow: 0 2px 0 0 darken(#6bd400, 10%);
   height: 50px;
+  transition: box-shadow .3s;
+
+  &:hover {
+    box-shadow: 0px 3px 2px 1px darken(#6bd400, 10%);
+  }
 }
 
 /*--------------------------------
