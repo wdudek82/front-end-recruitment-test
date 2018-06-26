@@ -5,7 +5,7 @@
   Checkout Page
 ----------------------------------*/
 #checkout {
-  height: 100vh;
+  min-height: 100vh;
 }
 
 /*--------------------------------
@@ -13,11 +13,11 @@
 ----------------------------------*/
 .checout-main {
   display: grid;
-  grid-template-columns: auto 300px;
-  grid-template-rows: 22px auto;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
   grid-template-areas:
-    'form .'
-    'form summary';
+    'summary'
+    'form';
   grid-gap: 1rem;
   margin: 5rem auto;
   font-family: 'Roboto', sans-serif;
@@ -27,6 +27,14 @@
   box-shadow: 0 2px 2px 2px #ccc;
   max-width: 900px;
   padding: 3rem 3rem;
+
+  @media (min-width: 920px) {
+    grid-template-columns: auto 300px;
+    grid-template-rows: 22px auto;
+    grid-template-areas:
+      'form .'
+      'form summary';
+  }
 }
 
 /*--------------------------------
@@ -35,14 +43,25 @@
 .checkout-form {
   grid-area: form;
   display: grid;
-  grid-template-columns: 22px auto;
+  grid-template-columns: auto;
   grid-template-areas:
-    'header-personal header-personal'
-    '. personal'
-    'header-payment header-payment'
-    '. payment'
-    '. button';
+    'header-personal'
+    'personal'
+    'header-payment'
+    'payment'
+    'button';
   grid-gap: 1rem;
+
+  @media (min-width: 920px) {
+    grid-template-columns: 22px auto;
+    grid-template-areas:
+      'header-personal header-personal'
+      '. personal'
+      'header-payment header-payment'
+      '. payment'
+      '. button';
+    grid-gap: 1rem;
+  }
 }
 
 /*--------------------------------
@@ -103,11 +122,21 @@
     grid-area: personal;
     display: grid;
     grid-template-areas:
-      'fname lname'
-      'email email'
-      'country postal'
-      'phone phone';
+      'fname'
+      'lname'
+      'email'
+      'country'
+      'postal'
+      'phone';
     grid-gap: 1rem;
+
+    @media (min-width: 550px) {
+      grid-template-areas:
+        'fname lname'
+        'email email'
+        'country postal'
+        'phone phone';
+    }
   }
 
   &.payment {
@@ -294,9 +323,22 @@
   box-shadow: 0 2px 0 0 #ccc;
   border-radius: 3px;
   height: 290px;
-  width: 300px;
   font-size: 0.9rem;
   padding: 0.5rem;
+
+  @media (min-width: 920px) {
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    background: #fff;
+    box-shadow: 0 2px 0 0 #ccc;
+    border-radius: 3px;
+    height: 290px;
+    width: 300px;
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  
+  }
 }
 
 .checkout-summary__container {
@@ -324,6 +366,11 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 1rem;
+  transition: background .3s;
+
+  &:hover {
+    background: #ccc;
+  }
 }
 
 .total__label {
