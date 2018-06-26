@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,700,900');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700,900');
 @import url('https://fonts.googleapis.com/css?family=Poppins:600');
 
 /*--------------------------------
@@ -113,7 +113,6 @@
   &.payment {
     grid-area: payment;
     display: grid;
-    // grid-template-columns: repeat(3, 1fr);
     grid-template-areas:
       'creditcard creditcard'
       'security expiration';
@@ -177,6 +176,18 @@
     
     position: absolute;
     pointer-events: none;
+  }
+}
+
+.input__item {
+  &::after {
+    content: attr(data-value);
+    color: red;
+    position: absolute;
+    width: 500px;
+    top: 3rem;
+    left: 0.3rem;
+    font-size: 0.75rem;
   }
 }
 
@@ -245,6 +256,10 @@
   top: calc(45px / 2 - 10px);
   right: 0.8rem;
   font-weight: 700;
+
+  &:after {
+    content: none;
+  }
 }
 
 /*--------------------------------

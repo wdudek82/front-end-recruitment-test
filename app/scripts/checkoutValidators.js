@@ -30,19 +30,20 @@ function handleFormSubmit(e) {
 /**
 * @param {EventObject} element - input or select field
 * @param {string} className - class name to append to the element
+* @param {string} errorMsg - string containing error message
 */
-function outputValidationResults(element, className) {
+function outputValidationResults(element, className, errorMsg) {
+  console.log(element.parentNode);
+
   if (className === 'invalid') {
     element.classList.remove('valid');
+    element.parentNode.setAttribute('data-value', errorMsg);
   } else if (className === 'valid') {
     element.classList.remove('invalid');
+    element.parentNode.setAttribute('data-value', '');
   }
 
   element.classList.add(className);
-
-  // setTimeout(() => {
-  //   element.classList.remove(className);
-  // }, 1000);
 }
 
 /**
@@ -57,7 +58,9 @@ function validateName(name) {
     appendedClass = 'valid';
   }
 
-  outputValidationResults(name, appendedClass);
+  const errorMessage = 'At least 3 letters long!';
+
+  outputValidationResults(name, appendedClass, errorMessage);
 }
 
 /**
@@ -72,7 +75,9 @@ function validateEmail(email) {
     appendedClass = 'valid';
   }
 
-  outputValidationResults(email, appendedClass);
+  const errorMessage = 'Ivalid email format!';
+
+  outputValidationResults(email, appendedClass, errorMessage);
 }
 
 /**
@@ -87,7 +92,9 @@ function validatePostalCode(postalCode) {
     appendedClass = 'valid';
   }
 
-  outputValidationResults(postalCode, appendedClass);
+  const errorMessage = 'Has to contain exactly 5 digits!';
+
+  outputValidationResults(postalCode, appendedClass, errorMessage);
 }
 
 /**
@@ -102,7 +109,9 @@ function validatePhone(phone) {
     appendedClass = 'valid';
   }
 
-  outputValidationResults(phone, appendedClass);
+  const errorMessage = 'Invalid phone number format!';
+
+  outputValidationResults(phone, appendedClass, errorMessage);
 }
 
 /**
@@ -117,7 +126,9 @@ function validateCreditCardNumber(creditCardNumber) {
     appendedClass = 'valid';
   }
 
-  outputValidationResults(creditCardNumber, appendedClass);
+  const errorMessage = 'Invalid credit card number! Allowed separators: -, . or space.';
+
+  outputValidationResults(creditCardNumber, appendedClass, errorMessage);
 }
 
 /**
@@ -132,14 +143,16 @@ function validateSecurityCode(securityCode) {
     appendedClass = 'valid';
   }
 
-  outputValidationResults(securityCode, appendedClass);
+  const errorMessage = 'Has to contain exactly 3 digits!';
+
+  outputValidationResults(securityCode, appendedClass, errorMessage);
 }
 
 /**
 * @param {string} expirationDate - expirationDate
 */
 function validateExpirationDate(expirationDate) {
-  const expirationDateRegex = /^(0?[1-9]|1[012])[/-](\d{4})$/;
+  const expirationDateRegex = /^(0?[1-9]|1[012])[/-](\d{2})$/;
 
   let appendedClass = 'invalid';
 
@@ -147,7 +160,9 @@ function validateExpirationDate(expirationDate) {
     appendedClass = 'valid';
   }
 
-  outputValidationResults(expirationDate, appendedClass);
+  const errorMessage = 'Invalid date format! Allowed: MM/YY or MM-YY.';
+
+  outputValidationResults(expirationDate, appendedClass, errorMessage);
 }
 
 checkoutForm.addEventListener('submit', handleFormSubmit);
