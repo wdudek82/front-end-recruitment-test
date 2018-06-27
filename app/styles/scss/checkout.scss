@@ -130,7 +130,7 @@
       'phone';
     grid-gap: 1rem;
 
-    @media (min-width: 550px) {
+    @media (min-width: 600px) {
       grid-template-areas:
         'fname lname'
         'email email'
@@ -143,9 +143,16 @@
     grid-area: payment;
     display: grid;
     grid-template-areas:
-      'creditcard creditcard'
-      'security expiration';
+      'creditcard'
+      'security'
+      'expiration';
     grid-gap: 1rem;
+    
+    @media (min-width: 600px) {
+      grid-template-areas:
+        'creditcard creditcard'
+        'security expiration';
+    }
   }
 }
 
